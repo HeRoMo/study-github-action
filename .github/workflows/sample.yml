@@ -12,6 +12,10 @@ jobs:
   conditional:
     runs-on: ubuntu-latest
     if: |
-      (github.event.action == 'labeled') && (github.event.label.name == 'bug')
+      (github.event.action == 'labeled') && (github.event.label.name == 'bug') ||
+      (github.event.action == 'synchronize') && (contains(github.event.pull_request.labels.*.name, 'bug')
     steps:
       - run: echo 'executed!!'
+      - run: echo ${{github.event.action}}
+      - run: echo ${{github.event.pull_request.labels.*.name}}
+      - run: echo ${{github.event.label.name}}
