@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: event name
         run: echo '${{github.event_name}}'
-      - run: echo '${{toJson(github.event)}}'
+      - run: echo '${{toJson(github)}}'
   conditional:
     runs-on: ubuntu-latest
     if: |
