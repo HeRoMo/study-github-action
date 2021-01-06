@@ -7,4 +7,6 @@ jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-      - run: echo '${{toJSON(github)}}'
+      - name: event name
+        run: echo '${{github.event_name}}'
+      - run: echo '${{toJSON(github.event)}}'
