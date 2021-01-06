@@ -17,5 +17,5 @@ jobs:
     steps:
       - run: echo 'executed!!'
       - run: echo ${{github.event.action}}
-      - run: echo ${{toJson(github.event.pull_request.labels.*.name)}}
+      - run: echo ${{toJson(github.event.pull_request.labels)}}
       - run: echo ${{github.event.label.name}}
