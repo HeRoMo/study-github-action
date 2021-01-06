@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: event name
         run: echo '${{github.event_name}}'
-      - run: echo '${{toJSON(github.event)}}'
+      - run: echo '${{toJson(github.event)}}'
   conditional:
     runs-on: ubuntu-latest
     if: |
@@ -17,5 +17,5 @@ jobs:
     steps:
       - run: echo 'executed!!'
       - run: echo ${{github.event.action}}
-      - run: echo ${{toJSON(github.event.pull_request.labels.*.name)}}
+      - run: echo ${{toJson(github.event.pull_request.labels.*.name)}}
       - run: echo ${{github.event.label.name}}
