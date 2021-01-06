@@ -1,0 +1,9 @@
+name: StudyAction
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ${{github.event}}
