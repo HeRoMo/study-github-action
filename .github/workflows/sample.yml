@@ -1,8 +1,7 @@
 name: StudyAction
 on:
   pull_request:
-    types: [opened, synchronize]
-  label:
+    types: [opened, synchronize, labeled]
 jobs:
   example:
     runs-on: ubuntu-latest
