@@ -12,6 +12,6 @@ jobs:
   conditional:
     runs-on: ubuntu-latest
     if: |
-      github.event.action == 'labeled'
+      (github.event.action == 'labeled') && (github.event.label.name == 'bug')
     steps:
       - run: echo 'executed!!'
