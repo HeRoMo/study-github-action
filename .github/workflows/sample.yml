@@ -6,4 +6,4 @@ jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-      - run: pwd
+      - run: echo ${{github.event}}
