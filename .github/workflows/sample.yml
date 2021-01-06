@@ -9,3 +9,9 @@ jobs:
       - name: event name
         run: echo '${{github.event_name}}'
       - run: echo '${{toJSON(github.event)}}'
+  conditional:
+    runs-on: ubuntu-latest
+    if: |
+      github.event.action == 'labeled'
+    steps:
+      - run: echo 'executed!!'
