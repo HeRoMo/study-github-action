@@ -1,0 +1,14 @@
+name: Container job sample 
+on:
+  workflow_dispatch:
+
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: ruby:3.1.2
+    steps:
+      - name: show ruby version
+        run: ruby -v
+      - name: show uname
+        run: uname -a
