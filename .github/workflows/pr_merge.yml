@@ -7,10 +7,10 @@ on:
 
 jobs:
   merged:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'test/') == true
     name: PR Merged
     runs-on: ubuntu-latest
     steps:
       - name: show context
         run: |
-          echo ${{ toJSON(github.event.pull_request) }}
+          echo '${{ toJSON(github.event.pull_request) }}'
