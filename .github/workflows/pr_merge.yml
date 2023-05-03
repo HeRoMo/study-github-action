@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: show context
         run: |
-          echo ${{ github.event.pull_request }}
+          echo ${{ toJSON(github.event.pull_request) }}
