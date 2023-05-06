@@ -1,0 +1,21 @@
+name: StudyAction
+on:
+  pull_request:
+    types: [opened, synchronize, labeled]
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: event name
+        run: echo '${{github.event_name}}'
+      - run: echo '${{toJson(github)}}'
+  conditional:
+    runs-on: ubuntu-latest
+    if: |
+      ((github.event.action == 'labeled') && (github.event.label.name == 'bug')) ||
+      ((github.event.action == 'synchronize') && contains(github.event.pull_request.labels.*.name, 'bug'))
+    steps:
+      - run: echo 'executed!!'
+      - run: echo ${{github.event.action}}
+      - run: echo ${{github.event.label.name}}
+      - run: echo ${{toJson(github.event.pull_request.labels)}}
